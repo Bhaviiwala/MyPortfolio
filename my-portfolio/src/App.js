@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import Navbar from "./Components/Navbar";
-import Hero from "./Components/Hero";
-import About from "./Components/About";
-import Projects from "./Components/Projects";
-import Contact from "./Components/Contact";
+import Navbar from "./components_temp/Navbar";
+import Hero from "./components_temp/Hero";
+import About from "./components_temp/About";
+import Projects from "./components_temp/Projects";
+import Contact from "./components_temp/Contact";
 import "./App.css";
 
 function AnimatedRoutes() {
