@@ -11,7 +11,25 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// 🔥 Scroll reveal animation for all pages
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".reveal").forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+    if (top < screenHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+});
+
+// Run once on load also
+window.addEventListener("load", () => {
+  document.querySelectorAll(".reveal").forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+});
+
 reportWebVitals();

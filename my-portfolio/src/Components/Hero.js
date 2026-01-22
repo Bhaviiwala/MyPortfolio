@@ -8,9 +8,9 @@ function Hero() {
         <img src={profile} alt="profile" />
       </div>
 
-      <h2 className="role">&gt; Software Developer_</h2>
+      <h2 className="role reveal">Software Developer_</h2>
 
-      <p className="desc">
+     <p className="desc reveal">
       A passionate Software Developer 🚀 with a strong interest in ASP.NET Core MVC, desktop
         application development, and modern web technologies 🌐. I enjoy building secure
         scalable, and user-friendly applications using ASP.NET for web and desktop platforms, and
@@ -21,7 +21,7 @@ function Hero() {
       </p>
 
       <a href="/Resume-Bhavi_Iwala.pdf" download>
-  <button className="resume-btn">Download Resume</button>
+  <button className="resume-btn glow">Download Resume</button>
 </a>
 
 
