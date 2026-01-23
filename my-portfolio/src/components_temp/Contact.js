@@ -19,14 +19,14 @@ function Contact() {
 
   emailjs.send(
   "service_zxkvusv",
-  "template_87mui1m", // or the template you're editing
+  "template_87mui1m",
   {
-    name: `${form.fname} ${form.lname}`, // ✅ MATCHES {{name}}
-    message: form.message,               // ✅ MATCHES {{message}}
+    name: `${form.fname} ${form.lname}`,
+    email: form.email,
+    message: form.message,
   },
   "QcXe3ZQChDPrbjjuo"
 )
-
       .then(
         () => {
           alert("Message sent successfully!");
