@@ -1,5 +1,5 @@
 import { useState } from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
   const [form, setForm] = useState({
@@ -17,25 +17,32 @@ function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.send(
-        "service_bm0nejy",
-        "template_0zlcbnl",
-        {
-          from_name: form.fname + " " + form.lname,
-          from_email: form.email,
-          phone: form.phone,
-          message: form.message,
+  emailjs.send(
+  "service_zxkvusv",
+  "template_87mui1m", // or the template you're editing
+  {
+    name: `${form.fname} ${form.lname}`, // ✅ MATCHES {{name}}
+    message: form.message,               // ✅ MATCHES {{message}}
+  },
+  "QcXe3ZQChDPrbjjuo"
+)
+
+      .then(
+        () => {
+          alert("Message sent successfully!");
+          setForm({
+            fname: "",
+            lname: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
         },
-        "QcXe3ZQChDPrbjjuo"
-      ).then(
-      () => {
-        alert("Message sent successfully!");
-        setForm({ fname: "", lname: "", email: "", phone: "", message: "" });
-      },
-      () => {
-        alert("Failed to send message!");
-      }
-    );
+        (error) => {
+          console.error("EmailJS Error:", error);
+          alert("Failed to send message!");
+        }
+      );
   };
 
   return (
@@ -48,7 +55,7 @@ function Contact() {
         <div className="contact-info">
           <p>📞 Phone: +91 7778877401</p>
           <p>✉️ Email: bhaviiwala@gmail.com</p>
-          <p className="linkedin-box">
+          <p>
             🔗 LinkedIn:
             <a
               href="https://www.linkedin.com/in/bhavi-iwala-b52590276"
@@ -66,15 +73,43 @@ function Contact() {
           <h4>Your contact information</h4>
 
           <div className="row">
-            <input name="fname" value={form.fname} onChange={handleChange} placeholder="First name" required />
-            <input name="lname" value={form.lname} onChange={handleChange} placeholder="Last name" required />
-            <input name="email" value={form.email} onChange={handleChange} placeholder="Email address" required />
+            <input
+              name="fname"
+              value={form.fname}
+              onChange={handleChange}
+              placeholder="First name"
+              required
+            />
+            <input
+              name="lname"
+              value={form.lname}
+              onChange={handleChange}
+              placeholder="Last name"
+              required
+            />
+            <input
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Email address"
+              required
+            />
           </div>
 
-          <input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone Number" />
+          <input
+            name="phone"
+            value={form.phone}
+            onChange={handleChange}
+            placeholder="Phone Number"
+          />
 
-          <h5>Tell me what you need help with</h5>
-          <textarea name="message" value={form.message} onChange={handleChange} placeholder="Type Your Message Here" required />
+          <textarea
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+            placeholder="Type Your Message Here"
+            required
+          />
 
           <button type="submit">Submit</button>
         </form>

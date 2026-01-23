@@ -8,7 +8,6 @@ function About() {
       {/* ===== TOP SECTION ===== */}
       <div className="about-top">
         {/* LEFT IMAGE */}
-        {/* LEFT IMAGE */}
 <div className="about-left-panel">
   <motion.img
     src={profile}
